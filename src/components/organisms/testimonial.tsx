@@ -30,8 +30,8 @@ const testimonials = [
 
 export const HomeTestimonial = () => {
   return (
-    <section className="container mx-auto flex flex-col gap-y-[100px]">
-      <div className="space-y-5">
+    <section className="flex flex-col gap-y-[100px]">
+      <div className="container mx-auto space-y-5">
         <h2 className="text-center text-5xl font-semibold leading-tight text-white">
           <span className="text-stone-500">Our </span>
           Testimonials
