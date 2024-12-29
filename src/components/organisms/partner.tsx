@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 const partners = [
   {
@@ -36,30 +35,31 @@ const partners = [
 
 export const HomePartner = () => {
   return (
-    <section className="container mx-auto flex flex-col gap-y-[100px]">
-      <div className="space-y-5">
-        <h2 className="text-center text-5xl font-semibold leading-tight text-white">
+    <section className="container mx-auto flex flex-col gap-y-[50px] lg:gap-y-[80px]">
+      <div className="space-y-3.5 lg:space-y-5">
+        <h2 className="text-center text-2xl font-semibold leading-tight text-white lg:text-5xl">
           <span className="text-stone-500">Our </span>
           Partners and Clients
         </h2>
-        <p className="mx-auto max-w-screen-xl text-center text-lg text-stone-500">
+        <p className="mx-auto max-w-screen-xl text-center text-sm text-stone-500 lg:text-lg">
           We are grateful for the opportunity to work with esteemed partners and
           clients. Our strong relationships are a testament to our dedication
           and expertise in the digital realm.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-[30px]">
+      <div className="flex flex-col gap-[30px] lg:grid lg:grid-cols-3">
         {partners.map((item, index) => (
           <div
             key={index}
-            className="rounded-[20px] border border-neutral-900 px-[50px] py-[80px] flex flex-col gap-y-[60px]"
+            className="flex flex-col gap-y-[60px] rounded-[20px] border border-neutral-900 p-6 pt-[50px] lg:px-[50px] lg:py-[80px]"
           >
-            <div className="flex items-center justify-center gap-x-5">
+            <div className="flex items-center justify-center gap-x-3.5 lg:gap-x-5">
               <Image
                 src={"/partners/partner-1.svg"}
                 alt="partner-1"
                 width={138}
                 height={138}
+                className="size-[110px] lg:size-[138px]"
               />
               <Image src={"/plus.svg"} alt="plus-icon" width={40} height={40} />
               <Image
@@ -67,11 +67,16 @@ export const HomePartner = () => {
                 alt={`partner-${index + 2}`}
                 width={138}
                 height={138}
+                className="size-[110px] lg:size-[138px]"
               />
             </div>
-            <div className="space-y-5">
-              <p className="font-semibold text-xl text-white text-center">{item.name}</p>
-              <p className="text-stone-500 text-lg text-center">{item.description}</p>
+            <div className="space-y-3.5 lg:space-y-5">
+              <p className="text-center text-xl font-semibold text-white">
+                {item.name}
+              </p>
+              <p className="text-center text-sm text-stone-500 lg:text-lg">
+                {item.description}
+              </p>
             </div>
           </div>
         ))}

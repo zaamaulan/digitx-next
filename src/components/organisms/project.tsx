@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import { Button } from "../ui/button";
 
 const projects = [
@@ -35,54 +34,62 @@ const projects = [
 
 export const HomeProject = () => {
   return (
-    <section className="container mx-auto flex flex-col gap-y-[100px]">
-      <div className="space-y-5">
-        <h2 className="text-center text-5xl font-semibold leading-tight text-white">
-          <span className="text-stone-500">Our </span>
-          Works
-        </h2>
-        <p className="mx-auto max-w-screen-xl text-center text-lg text-stone-500">
-          Witness the brilliance of our previous projects. Our portfolio
-          showcases the successful collaborations {"we've"} had with diverse
-          clients across various industries. Let our work speak for itself.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 gap-[30px]">
-        {projects.map((item, index) => (
-          <figure
-            key={index}
-            className="flex flex-col gap-y-[50px] rounded-[20px] border border-neutral-800 bg-gradient-to-b from-stone-900 via-transparent p-[50px]"
-          >
-            <div className="relative flex h-[411px] flex-col items-center justify-center rounded-[20px] border border-neutral-800 bg-gradient-to-b from-neutral-800 via-transparent">
-              <Image
-                src={`/projects/project-${index + 1}.svg`}
-                alt={`project-icon-${index + 1}`}
-                width={200}
-                height={200}
-                className="mx-auto"
-                draggable={false}
-              />
-              <Button
-                variant={"outline"}
-                className="absolute -bottom-[calc(66px/2)] mx-auto w-fit rounded-full bg-stone-950"
-              >
-                View Projects Details
-              </Button>
-            </div>
-            <figcaption className="space-y-6 mt-10">
-              <p className="text-2xl font-semibold text-white">{item.title}</p>
-              <div className="flex items-center justify-between">
-                <p className="text-lg text-white">Category: {item.category}</p>
-                <p className="text-lg text-white">{item.date}</p>
+    <section className="container mx-auto flex flex-col gap-y-5 lg:gap-y-[50px]">
+      <div className="flex flex-col gap-y-[50px] lg:gap-y-[80px]">
+        <div className="space-y-3.5 lg:space-y-5">
+          <h2 className="text-center text-2xl font-semibold leading-tight text-white lg:text-5xl">
+            <span className="text-stone-500">Our </span>
+            Works
+          </h2>
+          <p className="mx-auto max-w-screen-xl text-center text-sm text-stone-500 lg:text-lg">
+            Witness the brilliance of our previous projects. Our portfolio
+            showcases the successful collaborations {"we've"} had with diverse
+            clients across various industries. Let our work speak for itself.
+          </p>
+        </div>
+        <div className="flex flex-col gap-[30px] lg:grid lg:grid-cols-2">
+          {projects.map((item, index) => (
+            <figure
+              key={index}
+              className="flex flex-col gap-y-11 rounded-[20px] border border-neutral-800 bg-gradient-to-b from-stone-900 via-transparent p-6 lg:gap-y-[50px] lg:p-[50px]"
+            >
+              <div className="relative flex min-h-[200px] flex-col items-center justify-center rounded-[20px] border border-neutral-800 bg-gradient-to-b from-neutral-800 via-transparent lg:min-h-[411px]">
+                <Image
+                  src={`/projects/project-${index + 1}.svg`}
+                  alt={`project-icon-${index + 1}`}
+                  width={200}
+                  height={200}
+                  className="mx-auto size-[100px] lg:size-[200px]"
+                  draggable={false}
+                />
+                <Button
+                  variant={"outline"}
+                  className="absolute -bottom-[calc(66px/2)] mx-auto w-fit rounded-full bg-stone-950"
+                >
+                  View Projects Details
+                </Button>
               </div>
-              <p className="text-lg text-stone-500">
-                {item.description}
-              </p>
-            </figcaption>
-          </figure>
-        ))}
+              <figcaption className="mt-4 space-y-4 lg:mt-10 lg:space-y-6">
+                <p className="text-lg font-semibold text-white lg:text-2xl">
+                  {item.title}
+                </p>
+                <div className="flex max-lg:flex-col max-lg:gap-y-3.5 lg:items-center lg:justify-between">
+                  <p className="text-sm text-white lg:text-lg">
+                    Category: {item.category}
+                  </p>
+                  <p className="text-sm text-white lg:text-lg">{item.date}</p>
+                </div>
+                <p className="text-sm text-stone-500 lg:text-lg">
+                  {item.description}
+                </p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
-      <Button variant={'outline'} className="rounded-full w-fit mx-auto">View All Projects</Button>
+      <Button variant={"outline"} className="mx-auto w-fit rounded-full">
+        View Projects Details
+      </Button>
     </section>
   );
 };

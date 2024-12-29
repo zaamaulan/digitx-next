@@ -1,12 +1,9 @@
-import React from "react";
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CustomAccordion } from "../atoms/accordion";
 
 const faqs = [
   {
@@ -57,30 +54,33 @@ const faqs = [
 
 export const HomeFAQ = () => {
   return (
-    <section className="container mx-auto flex flex-col gap-y-[100px]">
-      <div className="space-y-5">
-        <h2 className="text-center text-5xl font-semibold leading-tight text-white">
+    <section className="container mx-auto flex flex-col gap-y-[50px] lg:gap-y-[80px]">
+      <div className="space-y-3.5 lg:space-y-5">
+        <h2 className="text-center text-2xl font-semibold leading-tight text-white lg:text-5xl">
           <span className="text-stone-500">Frequently </span>
           Asked Questions
         </h2>
-        <p className="mx-auto max-w-screen-xl text-center text-lg text-stone-500">
+        <p className="mx-auto max-w-screen-xl text-center text-sm text-stone-500 lg:text-lg">
           Got questions? {"We've"} got answers. Check out our frequently asked
           questions section to find valuable insights into our processes,
           pricing, and more. Transparency is at the core of our client
           interactions.
         </p>
       </div>
-      <Accordion type="multiple" className="grid grid-cols-2 gap-x-[50px]">
+      <Accordion
+        type="multiple"
+        className="flex flex-col gap-x-[50px] lg:grid lg:grid-cols-2"
+      >
         {faqs.map((item, index) => (
           <AccordionItem
             key={index}
             value={`item-${index}`}
-            className="flex flex-col gap-y-[30px] border-b-neutral-900 p-[34px]"
+            className="flex flex-col gap-y-4 border-b-neutral-900 p-6 lg:gap-y-[30px] lg:p-[34px]"
           >
-            <AccordionTrigger className="flex gap-x-7 !p-0 text-left text-xl font-semibold hover:no-underline">
+            <AccordionTrigger className="flex gap-x-7 !p-0 text-left font-semibold hover:no-underline lg:text-xl">
               {item.question}
             </AccordionTrigger>
-            <AccordionContent className="!p-0 text-lg text-neutral-400">
+            <AccordionContent className="!p-0 text-sm text-neutral-400 lg:text-lg">
               {item.answer}
             </AccordionContent>
           </AccordionItem>

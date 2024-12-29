@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${sora.className} antialiased`}>
         <div className="flex min-h-screen flex-col justify-between bg-stone-950">
           <Navigation />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 max-lg:px-4">{children}</main>
           <Footer />
         </div>
       </body>

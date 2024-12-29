@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import { Button } from "../ui/button";
 
 const services = [
@@ -27,38 +26,38 @@ const services = [
 
 export const HomeService = () => {
   return (
-    <section className="container mx-auto flex flex-col gap-y-[100px]">
-      <div className="space-y-5">
-        <h2 className="text-center text-5xl font-semibold leading-tight text-white">
+    <section className="container mx-auto flex flex-col gap-y-[50px] lg:gap-y-[80px]">
+      <div className="space-y-3.5 lg:space-y-5">
+        <h2 className="text-center text-2xl font-semibold leading-tight text-white lg:text-5xl">
           <span className="text-stone-500">Our </span>
           Service
         </h2>
-        <p className="mx-auto max-w-screen-xl text-center text-lg text-stone-500">
+        <p className="mx-auto max-w-screen-xl text-center text-sm text-stone-500 lg:text-lg">
           Our comprehensive range of services includes web design, mobile app
           development, SEO, social media marketing, and more. Whether {"you're"}{" "}
           a startup or an established enterprise, our experts will craft
           solutions that drive results.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-[30px]">
+      <div className="flex flex-col gap-[30px] lg:grid lg:grid-cols-2">
         {services.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col gap-y-[50px] rounded-[20px] border border-neutral-800 p-[80px]"
+            className="flex flex-col gap-y-6 rounded-[20px] border border-neutral-800 p-6 pt-[50px] lg:gap-y-[50px] lg:p-[80px]"
           >
             <Image
               src={`/services/service-${index + 1}.svg`}
               alt={`service-icon-${index + 1}`}
               width={172}
               height={172}
-              className="mx-auto"
+              className="mx-auto size-[114px] lg:size-[172px]"
               draggable={false}
             />
-            <div className="space-y-5">
-              <h3 className="text-center text-2xl font-semibold text-white">
+            <div className="space-y-3.5 lg:space-y-5">
+              <h3 className="text-center text-2xl font-semibold text-white lg:text-[30px]">
                 {item.title}
               </h3>
-              <p className="text-center text-lg text-stone-500">
+              <p className="text-center text-sm text-stone-500 lg:text-lg">
                 {item.description}
               </p>
             </div>

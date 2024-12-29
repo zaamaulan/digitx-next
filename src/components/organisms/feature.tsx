@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
+import { cn } from "@/lib/utils";
 
 // import feature1 from "/public/features/feature-1.svg";
 // import feature2 from "/public/features/feature-2.svg";
@@ -44,42 +45,42 @@ const features = [
 
 export const HomeFeature = () => {
   return (
-    <section className="container mx-auto flex flex-col gap-y-[100px]">
-      <div className="space-y-5">
-        <h2 className="text-center text-5xl font-semibold leading-tight text-white">
+    <section className="container mx-auto flex flex-col gap-y-[50px] lg:gap-y-[80px]">
+      <div className="space-y-3.5 lg:space-y-5">
+        <h2 className="text-center text-2xl font-semibold leading-tight text-white lg:text-5xl">
           Reasons to Choose DigitX for <br />
           <span className="text-stone-500">Your Digital Journey</span>
         </h2>
-        <p className="mx-auto max-w-screen-xl text-center text-lg text-stone-500">
+        <p className="mx-auto max-w-screen-xl text-center text-sm text-stone-500 lg:text-lg">
           Partnering with DigitX offers a multitude of advantages. Experience
           increased brand visibility, improved customer engagement, and higher
           ROI. Our tailored solutions are designed to meet your unique business
           needs, ensuring lasting success.
         </p>
       </div>
-      <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-[50px]">
+      <div className="flex flex-col lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:gap-[50px]">
         {features.map((item, index) => (
           <Fragment key={index}>
-            <div className="flex flex-col gap-y-[50px]">
+            <div className="flex flex-col gap-y-6 lg:gap-y-[50px]">
               <Image
                 src={`/features/feature-${index + 1}.svg`}
                 alt={`feature-icon-${index + 1}`}
                 width={92}
                 height={92}
-                className="mx-auto"
+                className="mx-auto size-[60px] lg:size-[92px]"
                 draggable={false}
               />
-              <div className="space-y-5">
-                <h3 className="text-center text-2xl font-semibold text-white">
+              <div className="space-y-3.5 lg:space-y-5">
+                <h3 className="text-center text-lg font-semibold text-white lg:text-2xl lg:text-[30px]">
                   {item.title}
                 </h3>
-                <p className="text-center text-lg text-stone-500">
+                <p className="text-center text-sm text-stone-500 lg:text-lg">
                   {item.description}
                 </p>
               </div>
               <Button
                 variant={"outline"}
-                className="mx-auto w-fit rounded-full text-lg font-normal"
+                className="mx-auto w-fit rounded-full text-sm font-normal lg:text-lg"
               >
                 Learn More
               </Button>
@@ -92,9 +93,14 @@ export const HomeFeature = () => {
 
             {/* row separator */}
             {index % 3 === 2 && index !== features.length - 1 && (
-              <div className="col-span-5">
-                <Separator orientation="horizontal" className="bg-stone-900" />
-              </div>
+              <Separator
+                orientation="horizontal"
+                className={cn("bg-stone-900 max-lg:hidden lg:col-span-5")}
+              />
+            )}
+
+            {index !== features.length - 1 && (
+              <Separator className="bg-stone-900 max-xl:my-[40px] lg:hidden" />
             )}
           </Fragment>
         ))}

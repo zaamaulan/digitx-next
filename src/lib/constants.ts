@@ -1,7 +1,7 @@
 export type TNavLink = {
-  label: string
-  href: string
-}[]
+  label: string;
+  href: string;
+}[];
 
 export const navLinks = [
   { label: "Home", href: "/" },
@@ -11,4 +11,4 @@ export const navLinks = [
   { label: "Contact Us", href: "/contact-us" },
   { label: "Careers", href: "/career" },
   { label: "Blogs", href: "/blog" },
-]
+];

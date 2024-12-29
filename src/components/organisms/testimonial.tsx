@@ -30,13 +30,13 @@ const testimonials = [
 
 export const HomeTestimonial = () => {
   return (
-    <section className="flex flex-col gap-y-[100px]">
-      <div className="container mx-auto space-y-5">
-        <h2 className="text-center text-5xl font-semibold leading-tight text-white">
+    <section className="flex flex-col gap-y-[50px] lg:gap-y-[80px]">
+      <div className="container mx-auto space-y-3.5 lg:space-y-5">
+        <h2 className="text-center text-2xl font-semibold leading-tight text-white lg:text-5xl">
           <span className="text-stone-500">Our </span>
           Testimonials
         </h2>
-        <p className="mx-auto max-w-screen-xl text-center text-lg text-stone-500">
+        <p className="mx-auto max-w-screen-xl text-center text-sm text-stone-500 lg:text-lg">
           {"Don't"} just take our word for it; hear what our satisfied clients
           have to say about their experience with DigitX. We take pride in
           building lasting relationships and delivering exceptional results.{" "}
@@ -48,7 +48,7 @@ export const HomeTestimonial = () => {
             key={index}
             className="flex min-w-[32rem] flex-1 flex-col gap-y-10"
           >
-            <div className="relative flex h-full flex-col gap-y-[30px] rounded-[20px] border border-neutral-800 p-[40px]">
+            <div className="relative flex h-full flex-col gap-y-[30px] rounded-[20px] border border-neutral-800 p-[30px] lg:p-[40px]">
               <div className="grid h-14 w-14 place-items-center rounded-lg border border-neutral-800 bg-zinc-900">
                 <Image
                   src={"/twitter.svg"}
@@ -57,20 +57,26 @@ export const HomeTestimonial = () => {
                   height={30}
                 />
               </div>
-              <p className="text-lg text-white">{item.feedback}</p>
+              <p className="text-sm text-white max-lg:text-center lg:text-lg">
+                {item.feedback}
+              </p>
               {/* <span className="triangle absolute bottom-0 left-[20px]"></span> */}
             </div>
 
-            <div className="flex items-center gap-x-3.5">
-              <Avatar className="h-[70px] w-[70px]">
+            <div className="flex items-center gap-x-3.5 max-lg:flex-col">
+              <Avatar className="size-[60px] lg:size-[70px]">
                 <AvatarImage
                   src={`/avatars/avatar-${index + 1}.png`}
                   alt={`avatar-${index + 1}`}
                 />
               </Avatar>
               <div className="space-y-0.5">
-                <p className="text-lg text-white">{item.name}</p>
-                <p className="text-lg text-zinc-500">{item.position}</p>
+                <p className="text-lg text-white max-lg:text-center">
+                  {item.name}
+                </p>
+                <p className="text-zinc-500 max-lg:text-center lg:text-lg">
+                  {item.position}
+                </p>
               </div>
             </div>
           </div>
